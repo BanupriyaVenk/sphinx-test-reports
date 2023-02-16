@@ -106,9 +106,9 @@ class TestFileDirective(TestCommonDirective):
                     .upper()[: self.app.config.tr_suite_id_length]
                 )
                 
-                 if suite_id not in self.suite_ids:
+                if suite_id not in self.suite_ids:
                     self.suite_ids[suite_id] = suite["name"]
-                 else:
+                else:
                     raise Exception(
                         f'Suite ID {suite_id} already exists by {self.suite_ids[suite_id]} ({suite["name"]})'
                     )
