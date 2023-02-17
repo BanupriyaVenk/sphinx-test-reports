@@ -43,7 +43,7 @@ class TestSuiteDirective(TestCommonDirective):
 
         if nested:
             # access n-th nested suite here
-            self.results = self.results[0]["testsuites"]
+            self.results = self.results[0]["testsuite_nested"]
 
         suite_name = self.options.get("suite", None)
 
@@ -101,7 +101,7 @@ class TestSuiteDirective(TestCommonDirective):
         access_count = 0
         if len(suite_obj["testcases"]) == 0:
 
-            for suite in suite_obj["testsuites"]:
+            for suite in suite_obj["testsuite_nested"]:
 
                 suite_id = self.test_id
                 suite_id += (
@@ -163,7 +163,8 @@ class TestSuiteDirective(TestCommonDirective):
                 else:
                     raise Exception(f"Case ID exists: {case_id}")
 
-                options = self.options
+                options = self.options.copy()
+                
                 options["case"] = case["name"]
                 options["classname"] = case["classname"]
                 options["id"] = case_id
