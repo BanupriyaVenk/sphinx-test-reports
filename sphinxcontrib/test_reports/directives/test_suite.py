@@ -189,7 +189,7 @@ class TestSuiteDirective(TestCommonDirective):
                     )
                 )
 
-                is_nested = len(suite_obj["testsuites"]) > 0 or nested
+                is_nested = len(suite_obj["testsuite_nested"]) > 0 or nested
 
                 # depending if nested or not, runs case directive to add content to testcases
                 # count is for correct suite access, if multiple present, case_count is for correct case access
