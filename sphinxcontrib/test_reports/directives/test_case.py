@@ -46,7 +46,7 @@ class TestCaseDirective(TestCommonDirective):
                 
         if nested and suite_count >= 0:
             # access n-th nested suite here
-            self.results = self.results[0]["testsuites"][suite_count]
+            self.results = self.results[0]["testsuite_nested"][suite_count]
 
         suite_name = self.options.get("suite", None)
 
