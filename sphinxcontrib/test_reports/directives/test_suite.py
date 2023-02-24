@@ -135,7 +135,11 @@ class TestSuiteDirective(TestCommonDirective):
                     )
                 )
 
-                is_nested = len(suite_obj["testsuite_nested"]) > 0
+                from pprint import pprint
+                print("000000000000000000000000000000000000000000000000000000")
+                pprint(suite_obj)
+                
+                is_nested = len(suite_obj["testsuites"]) > 0
 
                 # create suite_directive for each nested suite, directive appends content in html files
                 # access_count keeps track of which nested testsuite to access in the directive
