@@ -3,7 +3,6 @@ import hashlib
 from docutils import nodes
 from docutils.parsers.rst import directives
 from sphinxcontrib.needs.api import add_need
-
 import sphinxcontrib.test_reports.directives.test_case
 from sphinxcontrib.test_reports.directives.test_common import TestCommonDirective
 from sphinxcontrib.test_reports.exceptions import TestReportInvalidOption
@@ -43,7 +42,7 @@ class TestSuiteDirective(TestCommonDirective):
 
         if nested:
             # access n-th nested suite here
-            self.results = self.results[0]["testsuite_nested"]
+            self.results = self.results[0]["testsuites"]
 
         suite_name = self.options.get("suite", None)
 
@@ -134,10 +133,6 @@ class TestSuiteDirective(TestCommonDirective):
                         self.state_machine,
                     )
                 )
-
-                from pprint import pprint
-                print("000000000000000000000000000000000000000000000000000000")
-                pprint(suite_obj)
                 
                 is_nested = len(suite_obj["testsuite_nested"]) > 0
 
@@ -193,10 +188,6 @@ class TestSuiteDirective(TestCommonDirective):
                     )
                 )
 
-                from pprint import pprint
-                print("000000000000000000000000000000000000000000000000000000")
-                pprint(suite_obj)
-                
                 is_nested = len(suite_obj["testsuite_nested"]) > 0 or nested
 
                 # depending if nested or not, runs case directive to add content to testcases

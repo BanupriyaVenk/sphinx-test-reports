@@ -39,14 +39,14 @@ class TestCaseDirective(TestCommonDirective):
         self.prepare_basic_options()
         self.load_test_file()
 
-        from pprint import pprint
-        print("000000000000000000000000000000000000000000000000000000")
-        pprint(self.results)
-        pprint(self.results[0])
+        #from pprint import pprint
+        #print("000000000000000000000000000000000000000000000000000000")
+        #pprint(self.results)
+        #pprint(self.results[0])
                 
         if nested and suite_count >= 0:
             # access n-th nested suite here
-            self.results = self.results[0]["testsuite_nested"][suite_count]
+            self.results = self.results[0]["testsuites"][suite_count]
 
         suite_name = self.options.get("suite", None)
 

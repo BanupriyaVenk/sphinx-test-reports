@@ -129,8 +129,6 @@ class JUnitParser:
         # main flow starts here
 
         junit_dict = []
-        complete_testsuite = parse_testsuite(self.junit_xml_object)
-        junit_dict.append(complete_testsuite)
         
         if self.junit_xml_object.tag == "testsuites":
             for testsuite_xml_object in self.junit_xml_object.testsuite:
